@@ -1,0 +1,18 @@
+<form action="{{ url_for('auth.login') }}" method="POST">
+    <!-- Token CSRF Obligatorio -->
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{ email or '' }}" required autofocus>
+    </div>
+
+    <div class="mb-3">
+        <label for="password" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="password" name="password" required>
+    </div>
+
+    <div class="d-grid gap-2">
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+    </div>
+</form>
